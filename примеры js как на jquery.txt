@@ -1,0 +1,76 @@
+
+// Бургер-меню
+const burgerMenu = document.querySelector('.burger-menu');
+const menu = document.querySelector('.menu');
+
+burgerMenu.addEventListener('click', function() {
+  menu.classList.toggle('show');
+});
+
+// Плавный скролл к элементу по data-scroll атрибуту
+const scrollItems = document.querySelectorAll('[data-scroll]');
+
+scrollItems.forEach(function(item) {
+  item.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    const targetId = item.getAttribute('data-scroll');
+    const targetElement = document.querySelector('[data-scroll-target="' + targetId + '"]');
+
+    if (targetElement) {
+      const offsetTop = targetElement.offsetTop;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+// tabs (accordion)
+const tabItems = document.querySelectorAll('[data-toggle="tab"]');
+
+tabItems.forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    const targetId = tab.getAttribute('data-target');
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      targetElement.classList.toggle('show');
+    }
+  });
+});
+
+// filter
+const filterButtons = document.querySelectorAll('.filter button');
+
+filterButtons.forEach(function(button) {
+  button.addEventListener('click', function() {
+    const category = button.getAttribute('data-category');
+    const items = document.querySelectorAll('.item');
+
+    if (category === 'all') {
+      items.forEach(function(item) {
+        item.style.display = 'block';
+      });
+    } else {
+      items.forEach(function(item) {
+        const itemCategory = item.getAttribute('data-category');
+        item.style.display = itemCategory === category ? 'block' : 'none';
+      });
+    }
+  });
+});
+
+// search к input button
+const searchButton = document.querySelector('.button__');
+
+searchButton.addEventListener('click', function() {
+  const searchText = document.getElementById('searchInput').value.toLowerCase();
+  const items = document.querySelectorAll('.item');
+
+  items.forEach(function(item) {
+    const itemText = item.textContent.toLowerCase();
+    item.style.display = itemText.includes(searchText) ? 'block' : 'none';
+  });
+});

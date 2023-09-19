@@ -1,0 +1,155 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin-left: 20px;
+}
+
+.menu li:first-child {
+  margin-left: 0;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+}
+
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 3px 0;
+}
+
+
+.section{
+  padding: 20px;
+  height: 500px;
+}
+
+
+
+.tabs {
+  display: flex;
+}
+
+.tab {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.tab:hover {
+  background-color: #e0e0e0;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.show {
+  display: block;
+}
+
+
+
+.filter button {
+  padding: 10px 20px;
+  margin: 5px;
+}
+
+.items {
+  list-style: none;
+  padding: 0;
+}
+
+.item {
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.category1 { background-color: #f0f0f0; }
+.category2 { background-color: #e0e0e0; }
+.category3 { background-color: #d0d0d0; }
+
+
+
+
+.button__ {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  background-color: #ff4f4f; /* Красный цвет */
+  color: white;
+  cursor: pointer;
+  border-radius: 5px; /* Закругление углов */
+}
+
+.button__:hover {
+  background-color: #e63636; /* Изменение цвета при наведении */
+}
+
+.button__:focus {
+  outline: none; /* Убрать фокусировку */
+}
+
+.button__:active {
+  background-color: #cc2c2c; /* Изменение цвета при активации (нажатии) */
+}
+
+
+@media (max-width: 768px) {
+  .burger-menu {
+    display: flex;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    padding: 10px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+  }
+
+  .menu li {
+    margin: 10px 0;
+  }
+
+  .menu a {
+    color: white;
+  }
+}
